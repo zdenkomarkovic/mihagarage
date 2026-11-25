@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-on-amber: var(--on-amber);
+}
+
+:root {
+  --on-amber: #000;
+}
+
+@theme {
+  /* Paleta preuzeta iz logoa */
+  --color-ink: #1d2631; /* tamno siva (osnovna pozadina) */
+  --color-steel: #242f3d;
+  --color-panel: #2d3a4b;
+  --color-line: #3c4b5f;
+  --color-mist: #a9b6c6;
+  --color-snow: #f1f5f8; /* boja pozadine logoa */
+  --color-amber: #e08045; /* narandzasta iz logoa */
+  --color-amber-dark: #c86d36;
+  --color-navy: #132644; /* tamnoplava iz logoa */
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-barlow), "Arial Narrow", sans-serif;
+}
+
+/* Svetla sekcija: ista imena boja, obrnuta paleta (pozadina logoa + tamnoplavi tekst) */
+.light {
+  --color-ink: #f1f5f8;
+  --color-steel: #e5ebf1;
+  --color-panel: #d9e1ea;
+  --color-line: #c9d3df;
+  --color-mist: #44546a;
+  --color-snow: #132644;
+  --color-amber: #b5571f;
+  --color-amber-dark: #9a4617;
+  --on-amber: #fff;
+  background: var(--color-ink);
+  color: var(--color-snow);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-snow);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: #000;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+}
+
+/* Dijagonalni "sectional door" uzorak */
+.panels {
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0,
+    transparent 46px,
+    rgba(255, 255, 255, 0.045) 46px,
+    rgba(255, 255, 255, 0.045) 48px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
